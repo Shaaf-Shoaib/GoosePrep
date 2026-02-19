@@ -96,7 +96,7 @@ const GoosePrep = () => {
         API_PATHS.AI.GENERATE_QUESTIONS,
         {
           role: sessionData?.role,
-          experience: sessionData?.experience,
+          level: sessionData?.level,
           topicsToFocus: sessionData?.topicsToFocus,
           numberOfQuestions: 10,
         }
@@ -139,7 +139,7 @@ const GoosePrep = () => {
       <RoleInfoHeader
         role={sessionData?.role || ""}
         topicsToFocus={sessionData?.topicsToFocus || ""}
-        experience={sessionData?.experience || "-"}
+        level={sessionData?.level || "-"}
         questions={sessionData?.questions?.length || "-"}
         description={sessionData?.description || ""}
         lastUpdated={

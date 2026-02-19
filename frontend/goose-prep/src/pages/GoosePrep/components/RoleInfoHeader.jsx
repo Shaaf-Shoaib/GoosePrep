@@ -3,7 +3,7 @@ import React from "react";
 const RoleInfoHeader = ({
   role,
   topicsToFocus,
-  experience,
+  level,
   questions,
   description,
   lastUpdated,
@@ -26,7 +26,7 @@ const RoleInfoHeader = ({
 
             <div className="flex items-center gap-3 mt-4">
                 <div className="text-[10px] font-semibold text-white bg-black px-3 py-1 rounded-full">
-                    Experience: {experience} {experience == 1 ? "Year" : "Years"}
+                    Level: {level}
                 </div>
 
                 <div className="text-[10px] font-semibold text-white bg-black px-3 py-1 rounded-full">

@@ -8,7 +8,7 @@ import { API_PATHS } from '../../utils/apiPaths';
 const CreateSessionForm = () => {
     const [formData, setFormData] = useState({
         role: "",
-        experience: "",
+        level: "",
         topicsToFocus: "",
         description: "",
     });
@@ -28,9 +28,9 @@ const CreateSessionForm = () => {
     const handleCreateSessions = async (e) => {
         e.preventDefault();
 
-        const { role, experience, topicsToFocus } = formData;
+        const { role, level, topicsToFocus } = formData;
 
-        if (!role || !experience || !topicsToFocus) {
+        if (!role || !level || !topicsToFocus) {
             setError("Please fill all the required fields.");
             return;
         }
@@ -43,7 +43,7 @@ const CreateSessionForm = () => {
                 API_PATHS.AI.GENERATE_QUESTIONS,
                 {
                     role,
-                    experience,
+                    level,
                     topicsToFocus,
                     numberOfQuestions: 10,
                 }
@@ -87,11 +87,11 @@ const CreateSessionForm = () => {
         />
 
         <Input
-            value={formData.experience}
-            onChange={({ target }) => handleChange("experience", target.value)}
-            label="Years of Experience"
-            placeholder="(e.g., 1 year, 3 years, 5+ years)"
-            type="number"
+            value={formData.level}
+            onChange={({ target }) => handleChange("level", target.value)}
+            label="Level"
+            placeholder="(e.g., Junior, Intermediate, Senior)"
+            type="text"
         />
 
         <Input

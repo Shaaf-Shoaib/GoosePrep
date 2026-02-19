@@ -6,7 +6,7 @@ const SummaryCard = ({
   colors,
   role,
   topicsToFocus,
-  experience,
+  level,
   questions,
   description,
   lastUpdated,
@@ -58,7 +58,7 @@ const SummaryCard = ({
         <div className="px-3 pb-3">
             <div className="flex items-center gap-3 mt-4">
                 <div className="text-[10px] font-medium text-black px-3 py-1 border-[0.5px] border-gray-900 rounded-full">
-                    Experience: {experience} {experience == 1 ? "Year" : "Years"}
+                    Level: {level} 
                 </div>
 
                 <div className="text-[10px] font-medium text-black px-3 py-1 border-[0.5px] border-gray-900 rounded-full">

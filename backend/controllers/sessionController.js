@@ -6,14 +6,14 @@ const Question = require("../models/Question");
 // @access  Private
 exports.createSession = async (req, res) => {
     try {       
-        const { role, experience, topicsToFocus, description, questions } = 
+        const { role, level, topicsToFocus, description, questions } = 
             req.body;
         const userId = req.user._id; 
 
         const session = await Session.create({
             user: userId,
             role,
-            experience, 
+            level, 
             topicsToFocus,
             description,
         });

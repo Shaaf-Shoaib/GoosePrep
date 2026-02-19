@@ -1,9 +1,9 @@
-const questionAnswerPrompt = (role, experience, topicsToFocus, numberOfQuestions)=>(`
+const questionAnswerPrompt = (role, level, topicsToFocus, numberOfQuestions)=>(`
     You are an AI trained to generate technical interview questions and answers.
     
     Task:
     - Role: ${role}
-    - Candidate Experience: ${experience} years
+    - Candidate Level: ${level} 
     - Focus Topics: ${topicsToFocus}
     - Write ${numberOfQuestions} interview questions
     - For each question, generate a detailed but beginner-friendly answer.

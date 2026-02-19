@@ -60,7 +60,7 @@ const Dashboard = () => {
               colors={CARD_BG[index % CARD_BG.length]}
               role={data?.role || ""}
               topicsToFocus={data?.topicsToFocus || ""}
-              experience={data?.experience || "-"}
+              level={data?.level || "-"}
               questions={data?.questions?.length || "-"}
               description={data?.description || ""}
               lastUpdated={
