@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react"; 
 
 import LandingPage from "./pages/LandingPage";
 import Dashboard from './pages/Home/Dashboard';
@@ -27,7 +28,8 @@ const App = () => {
           fontSize: "13px",
         },
       }}
-      />     
+      />
+      <Analytics /> 
     </div>
     </UserProvider>
   )
