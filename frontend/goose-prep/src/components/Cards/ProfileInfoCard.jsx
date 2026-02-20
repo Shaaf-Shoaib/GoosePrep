@@ -27,7 +27,7 @@ const ProfileInfoCard = () => {
                 {user.name || ""}
             </div>
             <button
-                className="text-amber-600 text-sm font-semibold cursor-pointer hover:underline"
+                className="text-[#E4B429] text-sm font-semibold cursor-pointer hover:underline hover:text-yellow-600 transition-colors"
                 onClick={handleLogout}
             >
                 Logout
