@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { LuPlus } from "react-icons/lu";
 import { CARD_BG } from "../../utils/data";
 import toast from "react-hot-toast";
-import DashboardLayout from '../../components/layouts/DashboardLayout';
-import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../utils/axiosInstance';
-import { API_PATHS } from '../../utils/apiPaths';
-import SummaryCard from '../../components/Cards/SummaryCard';
+import DashboardLayout from "../../components/layouts/DashboardLayout";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../utils/axiosInstance";
+import { API_PATHS } from "../../utils/apiPaths";
+import SummaryCard from "../../components/Cards/SummaryCard";
 import moment from "moment";
-import Modal from '../../components/Modal';
-import CreateSessionForm from './CreateSessionForm';
-import DeleteAlertContent from '../../components/DeleteAlertContent';
+import Modal from "../../components/Modal";
+import CreateSessionForm from "./CreateSessionForm";
+import DeleteAlertContent from "../../components/DeleteAlertContent";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Dashboard = () => {
   const [sessions, setSessions] = useState([]);
 
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
-    open: false, 
+    open: false,
     data: null,
   });
 
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchAllSessions();
-  }, []); 
+  }, []);
   return (
     <DashboardLayout>
       <div className="container mx-auto pt-4 pb-4">
@@ -75,7 +75,7 @@ const Dashboard = () => {
         </div>
 
         <button
-          className="h-12 md:h-12 flex items-center justify-center gap-3 bg-gradient-to-r from-[#FACC15] to-[#E4B429] text-sm font-semibold text-white px-7 py-2.5 rounded-full hover:bg-black transition-all cursor-pointer hover:shadow-2xl hover:shadow-yellow-400/50 fixed bottom-10 md:bottom-20 right-10 md:right-20"
+          className="h-12 md:h-12 flex items-center justify-center gap-3 bg-yellow-400 text-sm font-semibold text-white px-7 py-2.5 rounded-full hover:bg-yellow-300 transition-all cursor-pointer hover:shadow-xl hover:shadow-yellow-400/20 fixed bottom-10 md:bottom-20 right-10 md:right-20 border border-yellow-500/20"
           onClick={() => setOpenCreateModal(true)}
         >
           <LuPlus className="text-2xl text-white" />
@@ -113,4 +113,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard
+export default Dashboard;
