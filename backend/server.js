@@ -23,7 +23,7 @@ app.use(
 
 app.use(cors(corsOptions));
 
-app.options("/{*splat}", cors(corsOptions));
+app.options("/{*path}", cors(corsOptions));
 
 connectDB()
 
