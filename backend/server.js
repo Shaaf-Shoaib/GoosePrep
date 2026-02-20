@@ -21,7 +21,7 @@ app.use(
     })
 );
 
-app.options("/{*splat}", cors());
+app.options(/.* / , cors()); 
 
 connectDB()
 
