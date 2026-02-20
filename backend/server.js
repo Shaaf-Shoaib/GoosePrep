@@ -12,10 +12,8 @@ const { generateInterviewQuestions, generateConceptExplanation } = require("./co
 
 const app = express();
 
-// Middleware to handle CORS
 app.use(
     cors({
-        // Add your exact Vercel URL here
         origin: ["http://localhost:5173", "https://goose-prep.vercel.app"],
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
@@ -23,7 +21,7 @@ app.use(
     })
 );
 
-app.options("*", cors());
+app.options("/*", cors());
 
 connectDB()
 
