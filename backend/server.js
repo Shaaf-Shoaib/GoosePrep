@@ -15,11 +15,15 @@ const app = express();
 // Middleware to handle CORS
 app.use(
     cors({
-        origin: "*",
-        methods: ["GET", "POST", "PUT", "DELETE"],
+        // Add your exact Vercel URL here
+        origin: ["http://localhost:5173", "https://goose-prep.vercel.app"],
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true,
     })
 );
+
+app.options("*", cors());
 
 connectDB()
 
