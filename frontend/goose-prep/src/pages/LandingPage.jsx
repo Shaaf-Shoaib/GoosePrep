@@ -36,13 +36,13 @@ const LandingPage = () => {
               <>
                 <button 
                   onClick={() => { setCurrentPage("login"); setOpenAuthModal(true); }}
-                  className="text-[13px] font-medium text-gray-500 hover:text-black transition-colors"
+                  className="text-[13px] font-medium text-gray-500 hover:text-black transition-colors cursor-pointer"
                 >
                   Log in
                 </button>
                 <button
                   onClick={() => { setCurrentPage("signup"); setOpenAuthModal(true); }}
-                  className="bg-yellow-400 text-black text-[13px] px-4 py-1.5 rounded-md font-medium hover:bg-yellow-300 transition-all border border-yellow-500/20"
+                  className="bg-yellow-400 text-black text-[13px] px-4 py-1.5 rounded-md font-medium hover:bg-yellow-300 transition-all border border-yellow-500/20 cursor-pointer"
                 >
                   Sign Up
                 </button>
