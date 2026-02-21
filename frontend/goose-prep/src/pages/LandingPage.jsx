@@ -77,7 +77,7 @@ const LandingPage = () => {
             <div className="flex justify-center mb-20">
               <button
                 onClick={handleCTA}
-                className="group bg-black text-white px-8 py-3 rounded-md text-[14px] font-medium flex items-center gap-2 hover:bg-gray-800 transition-all shadow-lg shadow-black/5"
+                className="group bg-black text-white px-8 py-3 rounded-md text-[14px] font-medium flex items-center gap-2 hover:bg-gray-800 transition-all shadow-lg shadow-black/5 cursor-pointer"
               >
                 Get Started <LuChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
