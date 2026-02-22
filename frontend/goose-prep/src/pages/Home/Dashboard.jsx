@@ -75,11 +75,11 @@ const Dashboard = () => {
         </div>
 
         <button
-          className="h-12 md:h-12 flex items-center justify-center gap-3 bg-yellow-400 text-sm font-semibold text-white px-7 py-2.5 rounded-full hover:bg-yellow-300 transition-all cursor-pointer hover:shadow-xl hover:shadow-yellow-400/20 fixed bottom-10 md:bottom-20 right-10 md:right-20 border border-yellow-500/20"
+          className="fixed bottom-10 right-10 md:bottom-12 md:right-12 z-40 group flex items-center gap-3 bg-black text-white px-6 py-3 rounded-lg font-bold text-[13px] uppercase tracking-widest hover:bg-[#E4B429] hover:text-black transition-all duration-300 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] cursor-pointer border border-white/10"
           onClick={() => setOpenCreateModal(true)}
         >
-          <LuPlus className="text-2xl text-white" />
-          Add New
+          <LuPlus className="text-lg group-hover:rotate-90 transition-transform duration-300" />
+          <span>Add New Session</span>
         </button>
       </div>
 
