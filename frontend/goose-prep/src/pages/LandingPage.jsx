@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import HERO_IMG from "../assets/hero-img.png";
+import HERO_IMG2 from "../assets/hero-img2.png";
 import { APP_FEATURES } from "../utils/data";
 import { useNavigate } from "react-router-dom";
 import { LuSparkles, LuChevronRight } from "react-icons/lu";
+import { motion, AnimatePresence } from "framer-motion"; // Added for the carousel
 import Modal from "../components/Modal";
 import Login from "./Auth/Login";
 import SignUp from "./Auth/SignUp";
@@ -14,6 +16,16 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [currentPage, setCurrentPage] = useState("login");
+
+  const [activeImage, setActiveImage] = useState(0);
+  const heroImages = [HERO_IMG, HERO_IMG2];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveImage((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleCTA = () => {
     user ? navigate("/dashboard") : setOpenAuthModal(true);
@@ -55,15 +67,10 @@ const LandingPage = () => {
       <main className="relative">
         {/* Hero Section */}
         <div className="relative overflow-hidden">
-          {/* Subtle Grid Pattern Overlay */}
           <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
                style={{ backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`, backgroundSize: '60px 60px' }} />
 
           <div className="container mx-auto px-6 lg:px-12 pt-24 pb-12 text-center relative z-10">
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-yellow-200 bg-yellow-50/50 mb-8">
-              <LuSparkles className="w-3.5 h-3.5 text-yellow-600" />
-              <span className="text-[11px] font-medium uppercase tracking-[0.1em] text-yellow-700">AI Powered</span>
-            </div>
 
             <h1 className="text-5xl md:text-7xl font-medium tracking-[-0.03em] leading-[1.05] mb-8 text-black max-w-4xl mx-auto">
               Ace Co-op Interviews with <br />
@@ -71,7 +78,7 @@ const LandingPage = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Generate role-specific questions, expand answers when your stuck, and dive deeper into technical concepts. From preperation to offer - GoosePrep is your ultimate interview toolkit.
+            Generate role-specific questions, expand answers when you're stuck, and dive deeper into technical concepts. From preparation to offer - GoosePrep is your ultimate interview toolkit.
             </p>
 
             <div className="flex justify-center mb-20">
@@ -83,15 +90,35 @@ const LandingPage = () => {
               </button>
             </div>
 
-            {/* Large Hero Image */}
+            {/* TWO-IMAGE CAROUSEL */}
             <div className="relative max-w-6xl mx-auto">
               <div className="absolute -inset-1 bg-gradient-to-b from-yellow-200/30 to-transparent blur-2xl opacity-50 -z-10" />
-              <div className="relative rounded-xl border border-black/[0.08] bg-white p-2 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.12)]">
-                <img
-                  src={HERO_IMG}
-                  alt="GoosePrep Interface"
-                  className="rounded-lg w-full h-auto border border-black/[0.03]"
-                />
+              <div className="relative rounded-xl border border-black/[0.08] bg-white p-2 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.12)] overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeImage}
+                    src={heroImages[activeImage]}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.02 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    alt="GoosePrep Interface"
+                    className="rounded-lg w-full h-auto border border-black/[0.03]"
+                  />
+                </AnimatePresence>
+
+                {/* Progress Indicators */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+                  {heroImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveImage(i)}
+                      className={`h-1.5 transition-all duration-500 rounded-full ${
+                        i === activeImage ? "w-10 bg-yellow-400" : "w-2 bg-black/20"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -99,7 +126,6 @@ const LandingPage = () => {
 
         {/* Features*/}
         <section className="relative border-t border-black/[0.04] bg-[#FCFCFA] py-32 mt-12 overflow-hidden">
-          {/* Faint Yellow Structural Grid */}
           <div className="absolute inset-0 opacity-[0.2] pointer-events-none" 
                style={{ backgroundImage: `linear-gradient(#E4B429 0.5px, transparent 0.5px), linear-gradient(90deg, #E4B429 0.5px, transparent 0.5px)`, backgroundSize: '120px 120px' }} />
           
@@ -127,14 +153,7 @@ const LandingPage = () => {
         </section>
       </main>
 
-      <Modal
-        isOpen={openAuthModal}
-        onClose={() => {
-          setOpenAuthModal(false);
-          setCurrentPage("login");
-        }}
-        hideHeader
-      >
+      <Modal isOpen={openAuthModal} onClose={() => { setOpenAuthModal(false); setCurrentPage("login"); }} hideHeader>
         <div className="p-1">
           {currentPage === "login" ? <Login setCurrentPage={setCurrentPage} /> : <SignUp setCurrentPage={setCurrentPage} />}
         </div>
