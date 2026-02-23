@@ -91,7 +91,7 @@ const LandingPage = () => {
 
           <div className="container mx-auto px-6 lg:px-12 pt-24 pb-12 text-center relative z-10">
             <h1 className="text-5xl md:text-7xl font-medium tracking-[-0.03em] leading-[1.05] mb-8 text-black max-w-4xl mx-auto">
-              Master Co-op Interview Prep <br />
+              Master Co-op Interviews With <br />
               <span className="text-yellow-500 italic font-normal">
                 AI-Powered Learning
               </span>
