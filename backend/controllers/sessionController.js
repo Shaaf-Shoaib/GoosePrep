@@ -34,7 +34,7 @@ exports.createSession = async (req, res) => {
 
         res.status(201).json({ success: true, session });
     } catch (error) {
-        console.log("🚨 DATABASE ERROR TRIGGERED:", error);
+        console.log("DATABASE ERROR TRIGGERED:", error);
         res.status(500).json({ success : false, message: "Server Error" });
     }
 };

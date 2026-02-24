@@ -34,7 +34,7 @@ const generateInterviewQuestions = async (req, res) => {
 
             res.status(200).json(data);
     } catch (error) {
-        console.log("🚨 AI ERROR TRIGGERED:", error);
+        console.log("AI ERROR TRIGGERED:", error);
         res.status(500).json({
             message: "Failed to generate questions",
             error: error.message,
@@ -72,7 +72,7 @@ const generateConceptExplanation = async (req, res) => {
 
         res.status(200).json(data);
     } catch (error) {
-        console.log("🚨 EXPLANATION AI ERROR:", error); 
+        console.log("EXPLANATION AI ERROR:", error); 
         
         res.status(500).json({
             message: "Failed to generate explanation",
